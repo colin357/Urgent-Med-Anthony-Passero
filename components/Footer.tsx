@@ -5,19 +5,18 @@ const columns = [
   {
     title: "Care",
     links: [
-      { label: "Diagnostic testing", href: "#testing" },
-      { label: "Treatment programs", href: "#treatment" },
-      { label: "Who we treat", href: "#patients" },
+      { label: "About the network", href: "#about" },
+      { label: "Conditions we evaluate", href: "#conditions" },
+      { label: "Why prompt evaluation matters", href: "#why" },
       { label: "How it works", href: "#process" },
       { label: "Questions", href: "#faq" },
     ],
   },
   {
-    title: "Practice",
+    title: "Get started",
     links: [
-      { label: "Why Urgent Med", href: "#approach" },
-      { label: "Behind the practice", href: "#founder" },
-      { label: "Request an appointment", href: "#contact" },
+      { label: "Behind the network", href: "#founder" },
+      { label: "Schedule your evaluation", href: "#contact" },
       { label: `Call ${site.phone}`, href: `tel:${site.phoneHref}` },
       { label: site.email, href: `mailto:${site.email}` },
     ],
@@ -34,14 +33,14 @@ export default function Footer() {
           <div className="brand">
             <Logo className="brand__mark" />
             <span className="brand__text">
-              <span className="brand__name">Urgent Med</span>
-              <span className="brand__sub">TBI Diagnostics</span>
+              <span className="brand__name">Urgent Med First</span>
+              <span className="brand__sub">Post-Accident Care</span>
             </span>
           </div>
           <p className="footer__blurb">
-            A dedicated concussion and traumatic brain injury center serving Broward and
-            Palm Beach counties — diagnostic testing, rehabilitation and long-term care
-            coordinated by one team.
+            Urgent Med First — physician-led care for accident victims nationwide.
+            A national network of licensed physicians dedicated to the evaluation and
+            treatment of injuries sustained in motor vehicle accidents.
           </p>
           <p className="footer__blurb" style={{ marginTop: "1rem" }}>
             Se habla español.
@@ -64,9 +63,9 @@ export default function Footer() {
 
       <div className="shell footer__bar">
         <p className="footer__legal">
-          © {year} Urgent Med. The information on this site is for general education and
-          is not medical advice, diagnosis or treatment. If you are experiencing a medical
-          emergency, call 911.
+          © {year} Urgent Med First. The information on this site is for general
+          education and is not medical advice, diagnosis or treatment. If you are
+          experiencing a medical emergency, call 911.
         </p>
         <div className="footer__social">
           {site.social.map((s) => (

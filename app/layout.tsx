@@ -24,27 +24,27 @@ const plexMono = IBM_Plex_Mono({
 });
 
 const description =
-  "Urgent Med is a South Florida concussion and traumatic brain injury center. qEEG brain mapping, DTI imaging, neuropsychological and vestibular testing — plus the rehabilitation that follows, coordinated by one team.";
+  "Urgent Med First is a national network of physicians specializing in post-accident medical evaluation and care. Traumatic brain injury, spinal trauma and soft tissue injury assessed promptly, with imaging and specialist referrals coordinated for you.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Urgent Med — Concussion & TBI Testing and Care | South Florida",
-    template: "%s | Urgent Med",
+    default: "Urgent Med First — Medical Care for Accident Victims, Nationwide",
+    template: "%s | Urgent Med First",
   },
   description,
   keywords: [
-    "TBI testing",
-    "concussion clinic",
+    "car accident doctor",
+    "post-accident medical evaluation",
     "traumatic brain injury",
-    "qEEG brain mapping",
-    "post-concussion syndrome",
-    "neuropsychological evaluation",
-    "Fort Lauderdale",
-    "Boynton Beach",
+    "whiplash treatment",
+    "spinal injury after car accident",
+    "soft tissue injury",
+    "accident injury physician network",
+    "delayed injury symptoms",
   ],
   openGraph: {
-    title: "Urgent Med — Concussion & TBI Testing and Care",
+    title: "Urgent Med First — Medical Care for Accident Victims",
     description,
     type: "website",
     locale: "en_US",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Urgent Med — Concussion & TBI Testing and Care",
+    title: "Urgent Med First — Medical Care for Accident Victims",
     description,
   },
   robots: { index: true, follow: true },
@@ -66,21 +66,16 @@ export const viewport: Viewport = {
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "MedicalClinic",
+  "@type": "MedicalOrganization",
   name: site.name,
   description,
-  medicalSpecialty: "Neurologic",
+  slogan: site.tagline,
+  medicalSpecialty: ["Emergency", "Neurologic", "PhysicalMedicine"],
   telephone: site.phone,
   email: site.email,
+  url: siteUrl,
   founder: { "@type": "Person", name: site.founder },
-  address: site.locations.map((l) => ({
-    "@type": "PostalAddress",
-    streetAddress: l.street,
-    addressLocality: l.city,
-    addressRegion: "FL",
-    addressCountry: "US",
-  })),
-  openingHours: ["Mo-Th 08:00-18:00", "Fr 08:00-16:00"],
+  areaServed: { "@type": "Country", name: "United States" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

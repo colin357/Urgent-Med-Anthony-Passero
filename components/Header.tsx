@@ -34,11 +34,11 @@ export default function Header() {
         <div className="shell alertbar__inner">
           <p className="alertbar__msg">
             <span className="pulse-dot" aria-hidden="true" />
-            <span>Now accepting new patients at both South Florida locations — most appointments within one week.</span>
+            <span>A national network of physicians for accident-related injury — evaluations scheduled without delay.</span>
           </p>
           <div className="alertbar__links">
-            <a href="#contact">Insurance &amp; billing</a>
-            <a href="#patients">Referring a patient</a>
+            <a href="#why">Why act early</a>
+            <a href="#process">How it works</a>
           </div>
         </div>
       </div>
@@ -48,8 +48,8 @@ export default function Header() {
           <a href="#top" className="brand" aria-label={`${site.name} — home`}>
             <Logo className="brand__mark" />
             <span className="brand__text">
-              <span className="brand__name">Urgent Med</span>
-              <span className="brand__sub">TBI Diagnostics</span>
+              <span className="brand__name">Urgent Med First</span>
+              <span className="brand__sub">Post-Accident Care</span>
             </span>
           </a>
 
@@ -67,7 +67,7 @@ export default function Header() {
               {site.phone}
             </a>
             <a className="btn btn--ember" href="#contact">
-              Request appointment
+              Schedule evaluation
               <ArrowRight className="btn__arrow" />
             </a>
           </div>
@@ -105,7 +105,7 @@ export default function Header() {
             {site.phone}
           </a>
           <a className="btn btn--ember" href="#contact" onClick={() => setOpen(false)}>
-            Request an appointment
+            Schedule your evaluation
             <ArrowRight className="btn__arrow" />
           </a>
         </div>

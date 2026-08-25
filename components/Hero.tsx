@@ -3,9 +3,9 @@ import { ArrowRight, Phone } from "./Icons";
 import NeuralArt from "./NeuralArt";
 
 const proof = [
-  { k: "Same week", v: "Typical wait" },
-  { k: "10+", v: "Specialties on staff" },
-  { k: "2", v: "Florida centers" },
+  { k: "Nationwide", v: "Physician network" },
+  { k: "No delay", v: "Evaluation scheduling" },
+  { k: "End to end", v: "Care coordination" },
 ];
 
 export default function Hero() {
@@ -15,25 +15,25 @@ export default function Hero() {
       <div className="shell hero__inner">
         <div className="hero__copy">
           <p className="eyebrow eyebrow--ember" data-reveal="fade">
-            Concussion &amp; Traumatic Brain Injury
+            Post-Accident Medical Evaluation &amp; Care
           </p>
 
           <h1 className="display hero__title" data-reveal style={{ ["--reveal-delay" as string]: "80ms" }}>
-            The scan came back{" "}
-            <br className="br-lg" />
-            clean. You <em>didn&rsquo;t.</em>
+            Medical care for accident victims.{" "}
+            <em>When you need it most.</em>
           </h1>
 
           <p className="lede hero__lede" data-reveal style={{ ["--reveal-delay" as string]: "180ms" }}>
-            Urgent Med is a dedicated brain injury center in South Florida. We run the
-            diagnostic testing that emergency imaging was never built to do — then we
-            treat what we find, with one coordinated team and a plan you can hold in
-            your hand.
+            Being involved in a car accident can leave you with injuries that aren&rsquo;t
+            always immediately apparent. Urgent Med First is a national network of
+            physicians specializing in post-accident medical evaluation and care —
+            ensuring patients receive a thorough assessment and the right follow-up care
+            without delay.
           </p>
 
           <div className="hero__actions" data-reveal style={{ ["--reveal-delay" as string]: "260ms" }}>
             <a className="btn btn--ember" href="#contact">
-              Request an evaluation
+              Schedule your evaluation
               <ArrowRight className="btn__arrow" />
             </a>
             <a className="btn btn--ghost" href={`tel:${site.phoneHref}`}>
@@ -74,8 +74,8 @@ export default function Hero() {
               />
             </svg>
             <span>
-              <span className="hero__badge-k">Diagnostic suite</span>
-              <span className="hero__badge-v">qEEG &middot; DTI &middot; VNG</span>
+              <span className="hero__badge-k">Network reach</span>
+              <span className="hero__badge-v">Physicians nationwide</span>
             </span>
           </div>
 
@@ -84,8 +84,8 @@ export default function Hero() {
               <path d="M2 12h3.5l2-6 3 12 2.5-9 2 6.5 1.5-3.5H22" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             <span>
-              <span className="hero__badge-k">Report turnaround</span>
-              <span className="hero__badge-v">5 business days</span>
+              <span className="hero__badge-k">Referrals</span>
+              <span className="hero__badge-v">Coordinated for you</span>
             </span>
           </div>
         </div>

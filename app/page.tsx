@@ -1,4 +1,4 @@
-import Approach from "@/components/Approach";
+import About from "@/components/About";
 import CallBar from "@/components/CallBar";
 import Contact from "@/components/Contact";
 import Faq from "@/components/Faq";
@@ -6,13 +6,10 @@ import Footer from "@/components/Footer";
 import Founder from "@/components/Founder";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import HowItWorks from "@/components/HowItWorks";
 import Marquee from "@/components/Marquee";
-import Patients from "@/components/Patients";
-import Process from "@/components/Process";
 import RevealProvider from "@/components/Reveal";
-import Stats from "@/components/Stats";
-import Testing from "@/components/Testing";
-import Treatment from "@/components/Treatment";
+import WhyEarly from "@/components/WhyEarly";
 
 export default function Page() {
   return (
@@ -21,12 +18,9 @@ export default function Page() {
       <main>
         <Hero />
         <Marquee />
-        <Stats />
-        <Approach />
-        <Testing />
-        <Treatment />
-        <Patients />
-        <Process />
+        <About />
+        <WhyEarly />
+        <HowItWorks />
         <Founder />
         <Faq />
         <Contact />

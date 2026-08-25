@@ -18,10 +18,8 @@ const LOOP = RAW.slice(0, 10)
   .map(([x, y], i) => `${i === 0 ? "M" : "L"}${sx(x)} ${sy(y)}`)
   .join(" ") + " Z";
 
-/** Standard 10–20 EEG electrode positions, laid on the inner ring. */
-const ELECTRODES = [
-  "Fp1", "Fp2", "F4", "C4", "P4", "O2", "O1", "P3", "C3", "F3",
-];
+/** Outer ring markers — the wider network the coordinating team reaches into. */
+const RING_MARKERS = 14;
 
 const EDGES: [number, number][] = [
   [0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8], [8, 9], [9, 0],
@@ -29,8 +27,8 @@ const EDGES: [number, number][] = [
   [12, 8], [5, 13], [13, 6], [7, 14], [14, 8],
 ];
 
-/** Stylised cortical folds — drawn in sequence on mount. */
-const GYRI = [
+/** Connective arcs, drawn in sequence on mount. */
+const ARCS = [
   "M148 212c14-30 44-46 74-40 26 5 34 26 24 40-11 15-38 8-42-8-4-14 10-26 26-22",
   "M170 268c22 16 56 14 76-6 16-16 12-38-6-44-16-5-30 8-27 22 3 12 20 15 28 6",
   "M206 148c26-12 58-4 72 18 12 19 4 40-14 44",
@@ -39,7 +37,7 @@ const GYRI = [
 
 export default function NeuralArt() {
   return (
-    <svg className="neural" viewBox="0 0 440 440" role="img" aria-label="Abstract diagram of a brain network being mapped">
+    <svg className="neural" viewBox="0 0 440 440" role="img" aria-label="Abstract diagram of a nationwide network of connected physicians">
       <defs>
         <linearGradient id="naTeal" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="#14867E" />
@@ -63,38 +61,29 @@ export default function NeuralArt() {
       </g>
       <circle cx="220" cy="220" r="150" fill="none" stroke="#0B1A20" strokeOpacity="0.08" strokeWidth="1" />
 
-      {/* Electrode positions */}
+      {/* Network markers around the outer ring */}
       <g>
-        {ELECTRODES.map((label, i) => {
-          const a = (i / ELECTRODES.length) * Math.PI * 2 - Math.PI / 2;
+        {Array.from({ length: RING_MARKERS }, (_, i) => {
+          const a = (i / RING_MARKERS) * Math.PI * 2 - Math.PI / 2;
           const x = 220 + Math.cos(a) * 186;
           const y = 220 + Math.sin(a) * 186;
-          const lx = 220 + Math.cos(a) * 168;
-          const ly = 220 + Math.sin(a) * 168;
+          const inner = i % 3 === 0;
           return (
-            <g key={label}>
-              <circle cx={x} cy={y} r="2.6" fill="none" stroke="#0F6E68" strokeOpacity="0.55" strokeWidth="1" />
-              <text
-                x={lx}
-                y={ly}
-                fill="#0B1A20"
-                fillOpacity="0.34"
-                fontSize="8.5"
-                fontFamily="var(--font-plex-mono), monospace"
-                letterSpacing="0.5"
-                textAnchor="middle"
-                dominantBaseline="middle"
-              >
-                {label}
-              </text>
-            </g>
+            <circle
+              key={i}
+              cx={x}
+              cy={y}
+              r={inner ? "3" : "2.2"}
+              fill={inner ? "#0F6E68" : "none"}
+              fillOpacity={inner ? 0.5 : 0}
+              stroke="#0F6E68"
+              strokeOpacity="0.5"
+              strokeWidth="1"
+              className="neural__node"
+              style={{ ["--d" as string]: `${(i % 5) * 0.4}s` }}
+            />
           );
         })}
-      </g>
-
-      {/* Crosshair ticks */}
-      <g stroke="#0B1A20" strokeOpacity="0.2" strokeWidth="1">
-        <path d="M220 8v20M220 412v20M8 220h20M412 220h20" />
       </g>
 
       {/* Edges */}
@@ -120,7 +109,7 @@ export default function NeuralArt() {
       {/* Cortical folds */}
       <g fill="none" stroke="#0B1A20" strokeOpacity="0.22" strokeWidth="1.1" strokeLinecap="round"
          transform={`translate(${220 - CX * S} ${214 - CY * S}) scale(${S})`}>
-        {GYRI.map((d, i) => (
+        {ARCS.map((d, i) => (
           <path
             key={i}
             d={d}

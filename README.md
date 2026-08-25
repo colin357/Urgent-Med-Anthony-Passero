@@ -1,9 +1,11 @@
-# Urgent Med — landing page
+# Urgent Med First — landing page
 
-Marketing site for **Urgent Med**, a concussion / traumatic brain injury diagnostic
-and treatment practice founded by Anthony Passero. Content structure is modelled on
-[radiustbi.com](https://radiustbi.com) — the service mix, patient segments and
-diagnostic vocabulary — with original copy and an original design system.
+Marketing site for **Urgent Med First**, a national network of physicians
+specializing in post-accident medical evaluation and care, founded by Anthony
+Passero. Copy for the hero, about, how-it-works, conditions, why-prompt-evaluation
+and footer sections is supplied by the client and used verbatim; the surrounding
+material (FAQ, coordination list, delayed-onset timeline, founder statement) was
+written to fit and needs review.
 
 Built with Next.js (App Router) + TypeScript and hand-authored CSS. No UI kit,
 no runtime CSS-in-JS, no external asset requests: every graphic on the page is
@@ -18,11 +20,12 @@ The values currently in there are **placeholders**:
 
 | Field | Current value | Notes |
 | --- | --- | --- |
-| `phone`, location phones | `(954) 555-0142`, `(561) 555-0188` | Reserved 555-01xx fictional range — swap for the real lines |
-| `email` | `care@urgentmed.example` | Placeholder domain |
-| `locations[].street` / `.region` | `000 Placeholder …` | Real addresses were deliberately not invented |
+| `phone` | `(800) 555-0142` | Reserved 555-01xx fictional range — swap for the real intake line |
+| `email` | `care@urgentmedfirst.example` | Placeholder domain |
+| `hours` | Mon–Fri 8–8 etc. | Invented; set the real intake hours |
+| `coverage.points` | Four network claims | Check each against what the network actually offers |
 | `social[].href` | `#` | Point at the real profiles or delete the entries |
-| `siteUrl` | `https://urgent-med.vercel.app` | Override with the `NEXT_PUBLIC_SITE_URL` env var once the domain is attached |
+| `siteUrl` | `https://urgent-med-first.vercel.app` | Override with the `NEXT_PUBLIC_SITE_URL` env var once the domain is attached |
 
 Two more things worth a look before launch:
 
@@ -33,11 +36,22 @@ Two more things worth a look before launch:
   logs it. Wire it to email (Resend/Postmark), a CRM, or a scheduling system —
   the front end already handles the success state.
 
-Medical copy is written to be conservative: the only figures quoted are the two
-widely-cited public-health numbers (a brain injury every ~23 seconds; ~90% of
-concussions involve no loss of consciousness). Have a clinician review the
-content before publishing, and check the emergency-warning card in the
-"Why Urgent Med" section against the practice's own triage language.
+**Copy that was not supplied and needs sign-off.** The client-supplied sections are
+used verbatim. Everything else was written to fill out the page and states no
+statistics at all — but it does make claims about how the network operates, so
+check it:
+
+- `lib/content.ts` → `faqs` — six answers covering ER findings, referrals,
+  timing and billing. The billing answer is deliberately non-specific; confirm it
+  matches how the network actually handles coverage.
+- `lib/content.ts` → `coordination` — the six referral categories under
+  "What we coordinate". MRI, neurology and pain management come from the supplied
+  copy; orthopedics, physical therapy and records/follow-up were added.
+- `components/WhyEarly.tsx` → `ONSET` — the Hour 0 / Days 1–7 / Week 2 timeline.
+- `components/Founder.tsx` — the founder statement and pull quote are written, not
+  dictated. Replace with Anthony's own words.
+- `components/About.tsx` — the "When not to wait" emergency-signs card. Check it
+  against the network's own triage language before publishing.
 
 ---
 
@@ -77,12 +91,11 @@ app/
   robots.ts sitemap.ts
   api/appointment/     form endpoint
 components/
-  Header  Hero  NeuralArt  Marquee  Stats  Approach  Testing
-  Treatment  Patients  Process  Founder  Faq  Contact  Footer
-  CallBar  Reveal  Icons
+  Header  Hero  NeuralArt  Marquee  About  WhyEarly  HowItWorks
+  Founder  Faq  Contact  Footer  CallBar  Reveal  Icons
 lib/
-  site.ts              contact details, nav — the file to edit
-  content.ts           all page copy: tests, treatments, FAQs, audiences
+  site.ts              contact details, coverage, nav — the file to edit
+  content.ts           page copy: conditions, steps, coordination, FAQs
 ```
 
 ## Design notes
@@ -99,5 +112,6 @@ lib/
   ember wipe on buttons and cards. Everything is disabled under
   `prefers-reduced-motion: reduce`.
 - **Artwork** — `components/NeuralArt.tsx` builds the hero graphic from data: node
-  coordinates, edge pairs and 10–20 EEG electrode positions are computed and laid
-  out in code rather than exported from a design tool.
+  coordinates, edge pairs and ring markers are computed and laid out in code
+  rather than exported from a design tool. It reads as a distributed network of
+  connected physicians.

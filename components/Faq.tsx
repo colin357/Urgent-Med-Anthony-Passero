@@ -13,15 +13,15 @@ export default function Faq() {
       <div className="shell">
         <div className="faq__grid">
           <div data-reveal="left">
-            <p className="eyebrow">07 — Common questions</p>
+            <p className="eyebrow">05 — Common questions</p>
             <h2 className="h2 section-head__title">
               The things people{" "}
               <br className="br-lg" />
               ask first.
             </h2>
             <p style={{ marginTop: "1.4rem", color: "var(--slate)", fontSize: "0.969rem", lineHeight: 1.68, maxWidth: "28em" }}>
-              If yours isn&rsquo;t here, call us. You will reach a clinical coordinator,
-              not a phone tree.
+              If yours isn&rsquo;t here, call the intake line. You will reach a person
+              who can answer it, not a phone tree.
             </p>
             <a className="link-arrow" href={`tel:${site.phoneHref}`} style={{ marginTop: "1.25rem" }}>
               <Phone size={15} />
