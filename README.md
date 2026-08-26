@@ -44,9 +44,10 @@ check it:
 - `lib/content.ts` → `faqs` — six answers covering ER findings, referrals,
   timing and billing. The billing answer is deliberately non-specific; confirm it
   matches how the network actually handles coverage.
-- `lib/content.ts` → `coordination` — the six referral categories under
-  "What we coordinate". MRI, neurology and pain management come from the supplied
-  copy; orthopedics, physical therapy and records/follow-up were added.
+- `lib/content.ts` → `coordination` — the three referral categories under
+  "What we coordinate" (MRI, neurology, pain management). These are the ones named
+  in the supplied copy; nothing has been added to the list, and nothing should be
+  without the practice confirming it.
 - `components/WhyEarly.tsx` → `ONSET` — the Hour 0 / Days 1–7 / Week 2 timeline.
 - `components/Founder.tsx` — the founder statement and pull quote are written, not
   dictated. Replace with Anthony's own words.

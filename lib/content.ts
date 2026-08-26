@@ -52,12 +52,16 @@ export const process = [
   },
 ];
 
-/** What the network coordinates on a patient's behalf (elaborates step 02). */
+/**
+ * What the network coordinates on a patient's behalf (elaborates step 02).
+ * Scoped to the referral types named in the supplied copy — do not add others
+ * without confirmation from the practice.
+ */
 export const coordination = [
   {
     name: "Advanced imaging",
     body:
-      "MRI and CT scheduled through our referral network when the initial evaluation calls for a closer look than a physical exam can give.",
+      "MRI scheduled through our referral network when the initial evaluation calls for a closer look than a physical exam can give.",
   },
   {
     name: "Neurology",
@@ -68,21 +72,6 @@ export const coordination = [
     name: "Pain management",
     body:
       "For pain that has not resolved on its own, referral to physicians who treat post-traumatic pain specifically.",
-  },
-  {
-    name: "Orthopedics and spine",
-    body:
-      "Assessment of cervical, thoracic and lumbar injury by specialists who see accident-related spine trauma regularly.",
-  },
-  {
-    name: "Physical therapy and rehabilitation",
-    body:
-      "Structured rehabilitation for soft tissue and spinal injury, arranged so treatment starts while it still does the most good.",
-  },
-  {
-    name: "Records and follow-up",
-    body:
-      "Results returned to the treating physician, appointments tracked, and the next step scheduled before the last one closes.",
   },
 ];
 
