@@ -35,6 +35,34 @@ Two more things worth a look before launch:
 - **Appointment form.** `app/api/appointment/route.ts` validates the payload and
   logs it. Wire it to email (Resend/Postmark), a CRM, or a scheduling system —
   the front end already handles the success state.
+- **Terms & Conditions.** `/terms` is live and linked from the footer and the
+  appointment form, but the document in `lib/legal.ts` is a **draft that no
+  lawyer has read**. See the section below.
+
+### Terms & Conditions — needs counsel
+
+`lib/legal.ts` holds the whole document. It was written to cover the issues a
+physician-network site that collects patient intake data normally has to address:
+medical disclaimer, no physician-patient relationship from the website,
+emergencies, independent-practitioner status, contact consent, privacy, billing,
+acceptable use, IP, warranties, liability, indemnity, governing law.
+
+It is a starting point, not finished terms. Before launch:
+
+1. **Have healthcare counsel review it** against HIPAA and state health-privacy
+   law, TCPA / state consent rules for phone-SMS-email contact, state
+   medical-advertising and corporate-practice-of-medicine rules, state rules on
+   PIP / letters of protection / assignment of benefits, and any accessibility
+   commitments you want to make.
+2. **Fill the placeholders** — `LAST_UPDATED`, `LEGAL_ENTITY`, `GOVERNING_STATE`
+   at the top of the file. They render on the page as `[BRACKETED TEXT]` so
+   nothing ships silently blank.
+3. **Write a Privacy Policy or remove the reference.** Section 6 points at one
+   and it does not exist yet. A site whose form collects health information
+   normally needs one, plus a Notice of Privacy Practices.
+4. **Set `DRAFT_NOTICE = false`** once reviewed. While it is `true` the page
+   shows a visible "pending legal review" banner — deliberately, so unreviewed
+   terms cannot go live looking authoritative.
 
 **Copy that was not supplied and needs sign-off.** The client-supplied sections are
 used verbatim. Everything else was written to fill out the page and states no
@@ -85,8 +113,9 @@ Every push to `main` deploys; other branches get preview URLs.
 
 ```
 app/
-  layout.tsx           fonts, metadata, MedicalClinic JSON-LD
+  layout.tsx           fonts, metadata, MedicalOrganization JSON-LD
   page.tsx             section composition
+  terms/page.tsx       Terms & Conditions
   globals.css          the entire design system (tokens → components)
   icon.svg             favicon
   robots.ts sitemap.ts
@@ -97,6 +126,7 @@ components/
 lib/
   site.ts              contact details, coverage, nav — the file to edit
   content.ts           page copy: conditions, steps, coordination, FAQs
+  legal.ts             Terms & Conditions text + placeholders
 ```
 
 ## Design notes

@@ -4,9 +4,15 @@ import { useEffect, useState } from "react";
 import { nav, site } from "@/lib/site";
 import { ArrowRight, Logo, Phone } from "./Icons";
 
-export default function Header() {
+/**
+ * `home` controls how in-page anchors are written. On the landing page they stay
+ * bare hashes so the browser scrolls smoothly; anywhere else they are prefixed
+ * so they navigate home first.
+ */
+export default function Header({ home = true }: { home?: boolean }) {
   const [stuck, setStuck] = useState(false);
   const [open, setOpen] = useState(false);
+  const to = (hash: string) => (home ? hash : `/${hash}`);
 
   useEffect(() => {
     const onScroll = () => setStuck(window.scrollY > 12);
@@ -37,15 +43,15 @@ export default function Header() {
             <span>A national network of physicians for accident-related injury — evaluations scheduled without delay.</span>
           </p>
           <div className="alertbar__links">
-            <a href="#why">Why act early</a>
-            <a href="#process">How it works</a>
+            <a href={to("#why")}>Why act early</a>
+            <a href={to("#process")}>How it works</a>
           </div>
         </div>
       </div>
 
       <header className={`header${stuck ? " is-stuck" : ""}${open ? " is-menu-open" : ""}`}>
         <div className="shell header__inner">
-          <a href="#top" className="brand" aria-label={`${site.name} — home`}>
+          <a href={home ? "#top" : "/"} className="brand" aria-label={`${site.name} — home`}>
             <Logo className="brand__mark" />
             <span className="brand__text">
               <span className="brand__name">Urgent Med First</span>
@@ -55,7 +61,7 @@ export default function Header() {
 
           <nav className="nav" aria-label="Primary">
             {nav.map((item) => (
-              <a key={item.href} href={item.href}>
+              <a key={item.href} href={to(item.href)}>
                 {item.label}
               </a>
             ))}
@@ -66,7 +72,7 @@ export default function Header() {
               <Phone size={15} />
               {site.phone}
             </a>
-            <a className="btn btn--ember" href="#contact">
+            <a className="btn btn--ember" href={to("#contact")}>
               Schedule evaluation
               <ArrowRight className="btn__arrow" />
             </a>
@@ -92,7 +98,7 @@ export default function Header() {
           {nav.map((item, i) => (
             <a
               key={item.href}
-              href={item.href}
+              href={to(item.href)}
               onClick={() => setOpen(false)}
               style={{ transitionDelay: open ? `${120 + i * 55}ms` : "0ms" }}
             >
@@ -104,7 +110,7 @@ export default function Header() {
           <a className="mobile-menu__phone" href={`tel:${site.phoneHref}`}>
             {site.phone}
           </a>
-          <a className="btn btn--ember" href="#contact" onClick={() => setOpen(false)}>
+          <a className="btn btn--ember" href={to("#contact")} onClick={() => setOpen(false)}>
             Schedule your evaluation
             <ArrowRight className="btn__arrow" />
           </a>

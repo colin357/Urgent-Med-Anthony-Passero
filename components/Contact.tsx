@@ -138,7 +138,11 @@ export default function Contact() {
                   </button>
                   <p className="form__note">
                     This form is not monitored around the clock and is not for emergencies.
-                    Call 911 for a medical emergency.
+                    Call 911 for a medical emergency. By submitting you agree to our{" "}
+                    <a href="/terms" className="form__note-link">
+                      Terms &amp; Conditions
+                    </a>
+                    , including consent to be contacted about your request.
                   </p>
                 </div>
               </form>

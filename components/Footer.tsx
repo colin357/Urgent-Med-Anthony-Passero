@@ -23,8 +23,9 @@ const columns = [
   },
 ];
 
-export default function Footer() {
+export default function Footer({ home = true }: { home?: boolean }) {
   const year = new Date().getFullYear();
+  const to = (href: string) => (home || !href.startsWith("#") ? href : `/${href}`);
 
   return (
     <footer className="footer">
@@ -53,7 +54,7 @@ export default function Footer() {
             <ul>
               {col.links.map((l) => (
                 <li key={l.label}>
-                  <a href={l.href}>{l.label}</a>
+                  <a href={to(l.href)}>{l.label}</a>
                 </li>
               ))}
             </ul>
@@ -67,6 +68,9 @@ export default function Footer() {
           education and is not medical advice, diagnosis or treatment. If you are
           experiencing a medical emergency, call 911.
         </p>
+        <nav className="footer__legal-links" aria-label="Legal">
+          <a href="/terms">Terms &amp; Conditions</a>
+        </nav>
         <div className="footer__social">
           {site.social.map((s) => (
             <a key={s.label} href={s.href} aria-label={s.label}>
