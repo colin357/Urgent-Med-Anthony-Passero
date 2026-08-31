@@ -15,7 +15,6 @@ const columns = [
   {
     title: "Get started",
     links: [
-      { label: "Behind the network", href: "#founder" },
       { label: "Schedule your evaluation", href: "#contact" },
       { label: `Call ${site.phone}`, href: `tel:${site.phoneHref}` },
       { label: site.email, href: `mailto:${site.email}` },

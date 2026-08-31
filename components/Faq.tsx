@@ -13,7 +13,7 @@ export default function Faq() {
       <div className="shell">
         <div className="faq__grid">
           <div data-reveal="left">
-            <p className="eyebrow">05 — Common questions</p>
+            <p className="eyebrow">04 — Common questions</p>
             <h2 className="h2 section-head__title">
               The things people{" "}
               <br className="br-lg" />
