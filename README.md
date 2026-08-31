@@ -4,8 +4,8 @@ Marketing site for **Urgent Med First**, a national network of physicians
 specializing in post-accident medical evaluation and care, founded by Anthony
 Passero. Copy for the hero, about, how-it-works, conditions, why-prompt-evaluation
 and footer sections is supplied by the client and used verbatim; the surrounding
-material (FAQ, coordination list, delayed-onset timeline, founder statement) was
-written to fit and needs review.
+material (FAQ, coordination list, delayed-onset timeline) was written to fit and
+needs review.
 
 Built with Next.js (App Router) + TypeScript and hand-authored CSS. No UI kit,
 no runtime CSS-in-JS, no external asset requests: every graphic on the page is
@@ -29,9 +29,6 @@ The values currently in there are **placeholders**:
 
 Two more things worth a look before launch:
 
-- **Founder portrait.** `components/Founder.tsx` renders a designed monogram plate
-  (`AP`) where a photograph would go. Drop an image in `public/` and swap the
-  `.founder__portrait` contents for a `next/image` when you have one.
 - **Appointment form.** `app/api/appointment/route.ts` validates the payload and
   logs it. Wire it to email (Resend/Postmark), a CRM, or a scheduling system —
   the front end already handles the success state.
@@ -77,8 +74,6 @@ check it:
   in the supplied copy; nothing has been added to the list, and nothing should be
   without the practice confirming it.
 - `components/WhyEarly.tsx` → `ONSET` — the Hour 0 / Days 1–7 / Week 2 timeline.
-- `components/Founder.tsx` — the founder statement and pull quote are written, not
-  dictated. Replace with Anthony's own words.
 - `components/About.tsx` — the "When not to wait" emergency-signs card. Check it
   against the network's own triage language before publishing.
 
@@ -122,7 +117,7 @@ app/
   api/appointment/     form endpoint
 components/
   Header  Hero  NeuralArt  Marquee  About  WhyEarly  HowItWorks
-  Founder  Faq  Contact  Footer  CallBar  Reveal  Icons
+  Faq  Contact  Footer  CallBar  Reveal  Icons
 lib/
   site.ts              contact details, coverage, nav — the file to edit
   content.ts           page copy: conditions, steps, coordination, FAQs

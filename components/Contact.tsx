@@ -40,7 +40,7 @@ export default function Contact() {
       <div className="shell">
         <div className="section-head section-head--split">
           <div data-reveal>
-            <p className="eyebrow eyebrow--light">06 — Schedule your evaluation</p>
+            <p className="eyebrow eyebrow--light">05 — Schedule your evaluation</p>
             <h2 className="h2 section-head__title">
               Start with{" "}
               <br className="br-lg" />

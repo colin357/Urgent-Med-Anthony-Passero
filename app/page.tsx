@@ -3,7 +3,6 @@ import CallBar from "@/components/CallBar";
 import Contact from "@/components/Contact";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
-import Founder from "@/components/Founder";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
@@ -21,7 +20,6 @@ export default function Page() {
         <About />
         <WhyEarly />
         <HowItWorks />
-        <Founder />
         <Faq />
         <Contact />
       </main>
