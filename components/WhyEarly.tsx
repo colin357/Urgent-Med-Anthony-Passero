@@ -1,18 +1,16 @@
-import { ArrowRight } from "./Icons";
-
 /** How a masked injury typically surfaces — the argument for evaluating early. */
 const ONSET = [
   {
     when: "Hour 0",
-    what: "Impact. Adrenaline and shock blunt pain, and emergency imaging is looking for what is immediately life-threatening.",
+    what: "Adrenaline blunts pain, and emergency imaging looks for what is immediately life-threatening.",
   },
   {
     when: "Days 1–7",
-    what: "Stiffness, headache, dizziness and numbness begin to surface as that initial response subsides.",
+    what: "Stiffness, headache, dizziness and numbness surface as that response subsides.",
   },
   {
     when: "Week 2 onward",
-    what: "Untreated injuries are compensated around — and an injury nobody documented becomes harder to treat and harder to explain.",
+    what: "An injury nobody documented becomes harder to treat and harder to explain.",
   },
 ];
 
@@ -57,11 +55,6 @@ export default function WhyEarly() {
               Urgent Med First exists to make that evaluation{" "}
               <em>accessible, immediate, and comprehensive.</em>
             </blockquote>
-
-            <a className="btn btn--on-dark" href="#contact">
-              Schedule your evaluation
-              <ArrowRight className="btn__arrow" />
-            </a>
           </div>
         </div>
       </div>

@@ -61,44 +61,44 @@ export const coordination = [
   {
     name: "Advanced imaging",
     body:
-      "MRI scheduled through our referral network when the initial evaluation calls for a closer look than a physical exam can give.",
+      "MRI scheduled through our referral network when the evaluation calls for a closer look than an exam can give.",
   },
   {
     name: "Neurology",
     body:
-      "Specialist assessment when head impact, persistent headache or neurological symptoms need a neurologist rather than a generalist.",
+      "Specialist assessment when head impact, persistent headache or neurological symptoms need a neurologist.",
   },
   {
     name: "Pain management",
     body:
-      "For pain that has not resolved on its own, referral to physicians who treat post-traumatic pain specifically.",
+      "Referral to physicians who treat post-traumatic pain specifically.",
   },
 ];
 
 export const faqs = [
   {
     q: "I feel fine after my accident. Should I still be evaluated?",
-    a: "Yes. Many accident-related injuries — particularly traumatic brain injury, spinal injuries and soft tissue damage — do not produce obvious symptoms straight away. Adrenaline masks a great deal in the first day or two. An evaluation while you feel fine is the one that establishes what was and was not injured.",
+    a: "Yes. Traumatic brain injury, spinal injuries and soft tissue damage often produce no obvious symptoms at first — adrenaline masks a great deal in the first day or two. An evaluation while you feel fine is the one that establishes what was and was not injured.",
   },
   {
     q: "The emergency room told me nothing was wrong. Why see anyone else?",
-    a: "Emergency imaging is built to rule out bleeding, fracture and anything immediately life-threatening, and it does that job well. It is not designed to detect concussion, soft tissue damage or the early stages of spinal injury. A normal ER visit means you were not in danger that night — it is not a full account of your injuries.",
+    a: "Emergency imaging rules out bleeding, fracture and anything immediately life-threatening. It is not designed to detect concussion, soft tissue damage or early spinal injury. A normal ER visit means you were not in danger that night — not that you were uninjured.",
   },
   {
     q: "How quickly can I be seen?",
-    a: "Because Urgent Med First is a national network rather than a single clinic, we look for a physician near you rather than waiting on one office's calendar. Tell us where you are during intake and we will give you the soonest available appointment we can find.",
+    a: "We are a national network rather than a single clinic, so we look for a physician near you instead of waiting on one office's calendar. Tell us where you are and we will find the soonest appointment we can.",
   },
   {
     q: "Do I need a referral from another doctor?",
-    a: "Not to start. You can contact us directly after an accident. If your specific insurance plan requires a referral, our intake team will tell you during that first conversation and help you arrange it.",
+    a: "Not to start — you can contact us directly after an accident. If your plan requires one, our intake team will tell you and help you arrange it.",
   },
   {
     q: "What happens if I need an MRI or a specialist?",
-    a: "We arrange it. When the evaluation calls for imaging, neurology, pain management or another specialist, the referral is coordinated for you and the results come back to the physician managing your care — so you are not left carrying discs and paperwork between offices.",
+    a: "We arrange it. The referral is coordinated for you and the results come back to the physician managing your care, so you are not carrying discs and paperwork between offices.",
   },
   {
     q: "How is my care billed?",
-    a: "Coverage after a motor vehicle accident depends on your policy, your state and the circumstances of the crash. Our intake team reviews your specific situation with you before your first appointment so you know what to expect rather than finding out afterwards.",
+    a: "Coverage after an accident depends on your policy, your state and the circumstances of the crash. Our intake team reviews your situation before your first appointment so you know what to expect.",
   },
 ];
 

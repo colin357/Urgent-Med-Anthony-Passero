@@ -1,5 +1,4 @@
 import About from "@/components/About";
-import CallBar from "@/components/CallBar";
 import Contact from "@/components/Contact";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
@@ -24,7 +23,6 @@ export default function Page() {
         <Contact />
       </main>
       <Footer />
-      <CallBar />
       <RevealProvider />
     </>
   );

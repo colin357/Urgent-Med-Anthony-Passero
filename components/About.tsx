@@ -35,10 +35,8 @@ export default function About() {
           <div data-reveal="left">
             <h3 className="h3">Conditions we evaluate</h3>
             <p style={{ marginTop: "1.1rem", color: "var(--slate)", fontSize: "1rem", lineHeight: 1.68 }}>
-              Our physicians are experienced in identifying and treating these
-              conditions, and in coordinating the full spectrum of care patients need to
-              recover. An evaluation covers all of them, not just the injury that sent
-              you looking.
+              An evaluation covers all of them — not just the injury that sent you
+              looking.
             </p>
             <a className="link-arrow" href="#process" style={{ marginTop: "1.6rem" }}>
               See how an evaluation works
@@ -48,10 +46,10 @@ export default function About() {
             <div className="redflag">
               <p className="redflag__label">When not to wait</p>
               <p className="redflag__body">
-                A headache that keeps getting worse, repeated vomiting, one pupil larger
-                than the other, slurred speech, seizure, or someone who cannot be woken:
-                these are emergency signs. Go to an emergency room or call 911 — do not
-                book an evaluation.
+                A worsening headache, repeated vomiting, one pupil larger than the
+                other, slurred speech, seizure, or someone who cannot be woken are
+                emergency signs. Go to an emergency room or call 911 — do not book an
+                evaluation.
               </p>
             </div>
           </div>

@@ -15,9 +15,8 @@ export default function HowItWorks() {
           </div>
           <div data-reveal style={{ ["--reveal-delay" as string]: "120ms" }}>
             <p className="lede">
-              From the first phone call through specialist follow-up, the scheduling, the
-              referrals and the records are handled by our team. You attend the
-              appointments; we manage everything between them.
+              You attend the appointments. We handle the scheduling, the referrals and
+              the records in between.
             </p>
           </div>
         </div>
@@ -37,8 +36,7 @@ export default function HowItWorks() {
           <div className="coord__head">
             <p className="eyebrow">What we coordinate</p>
             <p className="coord__note">
-              Arranged on your behalf when the evaluation calls for it — you are never
-              handed a list and left to make the calls yourself.
+              Arranged on your behalf when the evaluation calls for it.
             </p>
           </div>
           <div className="coord__list">

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { site } from "@/lib/site";
-import { ArrowRight, Check, Chevron, Phone } from "./Icons";
+import { ArrowRight, Check, Chevron } from "./Icons";
 
 const REASONS = [
   "I was recently in a car accident",
@@ -50,8 +50,7 @@ export default function Contact() {
           <div data-reveal style={{ ["--reveal-delay" as string]: "120ms" }}>
             <p className="lede">
               Send this and our intake team will call you back to take your history,
-              review your coverage and match you with a physician near you. If it is
-              easier to talk now, the intake line is answered by a person.
+              review your coverage and match you with a physician near you.
             </p>
           </div>
         </div>
@@ -62,16 +61,10 @@ export default function Contact() {
               <div className="form__success" role="status">
                 <h3>Request received.</h3>
                 <p>
-                  Our intake team will call you back on the number you gave us to confirm
-                  your location and schedule the evaluation. If your symptoms are
-                  worsening quickly — worsening headache, repeated vomiting, confusion or
-                  seizure — go to an emergency room now rather than waiting for our call.
-                </p>
-                <p style={{ marginTop: "0.4rem" }}>
-                  Prefer to speak to someone straight away?{" "}
-                  <a href={`tel:${site.phoneHref}`} style={{ color: "var(--ember-2)" }}>
-                    {site.phone}
-                  </a>
+                  Our intake team will call you back to confirm your location and
+                  schedule the evaluation. If your symptoms are worsening quickly —
+                  worsening headache, repeated vomiting, confusion or seizure — go to an
+                  emergency room now rather than waiting for our call.
                 </p>
               </div>
             ) : (
@@ -131,18 +124,30 @@ export default function Contact() {
                   />
                 </label>
 
+                <label className="consent">
+                  <input type="checkbox" name="consent" value="yes" required />
+                  <span className="consent__text">
+                    I agree to receive account and service communications about my
+                    inquiry. This includes scheduling, reminders and updates.{" "}
+                    <span className="consent__req">Required to process your request.</span>
+                  </span>
+                </label>
+
                 <div className="form__foot">
                   <button className="btn btn--ember" type="submit" disabled={pending}>
-                    {pending ? "Sending…" : "Schedule your evaluation"}
+                    {pending ? "Sending…" : "Send request"}
                     <ArrowRight className="btn__arrow" />
                   </button>
                   <p className="form__note">
-                    This form is not monitored around the clock and is not for emergencies.
-                    Call 911 for a medical emergency. By submitting you agree to our{" "}
+                    By clicking Send I agree to receive emails, general communications and
+                    customer support text messages, and phone calls from {site.name}. I
+                    also agree to the{" "}
                     <a href="/terms" className="form__note-link">
                       Terms &amp; Conditions
                     </a>
-                    , including consent to be contacted about your request.
+                    . Reply STOP to opt out and HELP for help. Message and data rates may
+                    apply. Message frequency varies. This form is not monitored around the
+                    clock and is not for emergencies — call 911 for a medical emergency.
                   </p>
                 </div>
               </form>
@@ -161,10 +166,6 @@ export default function Contact() {
                   </li>
                 ))}
               </ul>
-              <a className="coverage__phone" href={`tel:${site.phoneHref}`}>
-                <Phone size={15} />
-                {site.phone}
-              </a>
             </div>
 
             <div className="hours">
