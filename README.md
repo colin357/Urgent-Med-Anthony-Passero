@@ -31,7 +31,16 @@ Two more things worth a look before launch:
 
 - **Appointment form.** `app/api/appointment/route.ts` validates the payload and
   logs it. Wire it to email (Resend/Postmark), a CRM, or a scheduling system —
-  the front end already handles the success state.
+  the front end already handles the success state. Whatever you wire it to must
+  **store the consent flag and `CONSENT_TEXT` with the request**: that record is
+  the evidence the patient opted in.
+- **Contact consent — needs counsel.** The form carries a required, unchecked
+  opt-in checkbox plus a by-clicking-Send disclosure (emails, texts, calls, STOP
+  and HELP keywords, message-rate and frequency notices). The wording was adapted
+  from a sample the client supplied and **has not been reviewed against TCPA or
+  state consent rules**. Have counsel check it, and make sure STOP and HELP
+  actually work in whatever messaging platform you connect — the site promises
+  they do.
 - **Terms & Conditions.** `/terms` is live and linked from the footer and the
   appointment form, but the document in `lib/legal.ts` is a **draft that no
   lawyer has read**. See the section below.
@@ -54,8 +63,9 @@ It is a starting point, not finished terms. Before launch:
 2. **Fill the placeholders** — `LAST_UPDATED`, `LEGAL_ENTITY`, `GOVERNING_STATE`
    at the top of the file. They render on the page as `[BRACKETED TEXT]` so
    nothing ships silently blank.
-3. **Write a Privacy Policy or remove the reference.** Section 6 points at one
-   and it does not exist yet. A site whose form collects health information
+3. **Write a Privacy Policy.** Section 6 of the terms points at one and it does
+   not exist yet. The consent copy beside the form normally links one too — it
+   currently links only the Terms, because there is no privacy page to link. A site whose form collects health information
    normally needs one, plus a Notice of Privacy Practices.
 4. **Set `DRAFT_NOTICE = false`** once reviewed. While it is `true` the page
    shows a visible "pending legal review" banner — deliberately, so unreviewed
@@ -117,7 +127,7 @@ app/
   api/appointment/     form endpoint
 components/
   Header  Hero  NeuralArt  Marquee  About  WhyEarly  HowItWorks
-  Faq  Contact  Footer  CallBar  Reveal  Icons
+  Faq  Contact  Footer  Reveal  Icons
 lib/
   site.ts              contact details, coverage, nav — the file to edit
   content.ts           page copy: conditions, steps, coordination, FAQs

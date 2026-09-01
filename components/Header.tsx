@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { nav, site } from "@/lib/site";
-import { ArrowRight, Logo, Phone } from "./Icons";
+import { Logo } from "./Icons";
 
 /**
  * `home` controls how in-page anchors are written. On the landing page they stay
@@ -40,7 +40,7 @@ export default function Header({ home = true }: { home?: boolean }) {
         <div className="shell alertbar__inner">
           <p className="alertbar__msg">
             <span className="pulse-dot" aria-hidden="true" />
-            <span>A national network of physicians for accident-related injury — evaluations scheduled without delay.</span>
+            <span>A national physician network for accident-related injury.</span>
           </p>
           <div className="alertbar__links">
             <a href={to("#why")}>Why act early</a>
@@ -66,17 +66,6 @@ export default function Header({ home = true }: { home?: boolean }) {
               </a>
             ))}
           </nav>
-
-          <div className="header__cta">
-            <a className="header__phone" href={`tel:${site.phoneHref}`}>
-              <Phone size={15} />
-              {site.phone}
-            </a>
-            <a className="btn btn--ember" href={to("#contact")}>
-              Schedule evaluation
-              <ArrowRight className="btn__arrow" />
-            </a>
-          </div>
 
           <button
             type="button"
@@ -106,15 +95,6 @@ export default function Header({ home = true }: { home?: boolean }) {
             </a>
           ))}
         </nav>
-        <div className="mobile-menu__foot">
-          <a className="mobile-menu__phone" href={`tel:${site.phoneHref}`}>
-            {site.phone}
-          </a>
-          <a className="btn btn--ember" href={to("#contact")} onClick={() => setOpen(false)}>
-            Schedule your evaluation
-            <ArrowRight className="btn__arrow" />
-          </a>
-        </div>
       </div>
     </>
   );

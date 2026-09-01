@@ -1,5 +1,3 @@
-import { site } from "@/lib/site";
-import { ArrowRight, Phone } from "./Icons";
 import NeuralArt from "./NeuralArt";
 
 const proof = [
@@ -30,17 +28,6 @@ export default function Hero() {
             ensuring patients receive a thorough assessment and the right follow-up care
             without delay.
           </p>
-
-          <div className="hero__actions" data-reveal style={{ ["--reveal-delay" as string]: "260ms" }}>
-            <a className="btn btn--ember" href="#contact">
-              Schedule your evaluation
-              <ArrowRight className="btn__arrow" />
-            </a>
-            <a className="btn btn--ghost" href={`tel:${site.phoneHref}`}>
-              <Phone size={15} />
-              {site.phone}
-            </a>
-          </div>
 
           <ul className="hero__proof" data-reveal="fade" style={{ ["--reveal-delay" as string]: "340ms" }}>
             {proof.map((p) => (

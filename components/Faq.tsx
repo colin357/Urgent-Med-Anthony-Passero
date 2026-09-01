@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import { faqs } from "@/lib/content";
-import { site } from "@/lib/site";
-import { Phone } from "./Icons";
 
 export default function Faq() {
   const [open, setOpen] = useState<number | null>(0);
@@ -20,13 +18,8 @@ export default function Faq() {
               ask first.
             </h2>
             <p style={{ marginTop: "1.4rem", color: "var(--slate)", fontSize: "0.969rem", lineHeight: 1.68, maxWidth: "28em" }}>
-              If yours isn&rsquo;t here, call the intake line. You will reach a person
-              who can answer it, not a phone tree.
+              If yours isn&rsquo;t here, ask on the form below — a person answers it.
             </p>
-            <a className="link-arrow" href={`tel:${site.phoneHref}`} style={{ marginTop: "1.25rem" }}>
-              <Phone size={15} />
-              {site.phone}
-            </a>
           </div>
 
           <div className="faq__list" data-reveal="fade">

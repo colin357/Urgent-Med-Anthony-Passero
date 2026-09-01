@@ -191,22 +191,6 @@ p { margin: 0; text-wrap: pretty; }
 .btn--ember { --btn-bg: var(--ember); --btn-fg: var(--white); }
 .btn--ember::after { background: var(--ink); }
 
-.btn--ghost {
-  --btn-bg: transparent;
-  --btn-fg: var(--ink);
-  border-color: var(--line);
-}
-.btn--ghost::after { background: var(--ink); }
-.btn--ghost:hover { --btn-fg: var(--paper); border-color: var(--ink); }
-
-.btn--on-dark {
-  --btn-bg: transparent;
-  --btn-fg: var(--paper);
-  border-color: var(--line-dark);
-}
-.btn--on-dark::after { background: var(--paper); }
-.btn--on-dark:hover { --btn-fg: var(--ink); border-color: transparent; }
-
 .btn__arrow { transition: transform 0.4s var(--ease); }
 .btn:hover .btn__arrow { transform: translateX(3px); }
 
@@ -401,23 +385,6 @@ p { margin: 0; text-wrap: pretty; }
 .nav a:hover { color: var(--ink); }
 .nav a:hover::after { transform: scaleX(1); transform-origin: left; }
 
-.header__cta { display: none; align-items: center; gap: 1.1rem; }
-@media (min-width: 1080px) { .header__cta { display: flex; } }
-.header__phone {
-  font-family: var(--font-mono);
-  font-size: 0.813rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  white-space: nowrap;
-  transition: color 0.3s var(--ease);
-  display: none;
-}
-@media (min-width: 1300px) { .header__phone { display: flex; } }
-.header__phone:hover { color: var(--ember); }
-
 .burger {
   display: inline-flex;
   flex-direction: column;
@@ -469,12 +436,6 @@ p { margin: 0; text-wrap: pretty; }
   transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
 }
 .mobile-menu.is-open .mobile-menu__nav a { opacity: 1; transform: none; }
-.mobile-menu__foot { display: flex; flex-direction: column; gap: 1rem; }
-.mobile-menu__phone {
-  font-family: var(--font-mono);
-  font-size: 1.05rem;
-  letter-spacing: 0.02em;
-}
 
 /* ==========================================================================
    Hero
@@ -525,13 +486,6 @@ p { margin: 0; text-wrap: pretty; }
   color: var(--teal);
 }
 .hero__lede { margin-top: 1.6rem; }
-.hero__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
-  margin-top: 2.1rem;
-}
-
 .hero__proof {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(8.5rem, max-content));
@@ -1058,8 +1012,42 @@ p { margin: 0; text-wrap: pretty; }
   pointer-events: none;
 }
 
-.form__foot { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem; margin-top: 0.5rem; }
-.form__note { font-size: 0.75rem; color: rgba(247, 244, 237, 0.42); max-width: 26em; line-height: 1.55; }
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 0.35rem;
+  cursor: pointer;
+}
+.consent input {
+  flex: none;
+  appearance: none;
+  width: 18px; height: 18px;
+  margin-top: 2px;
+  border: 1px solid var(--line-dark);
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+.consent input:checked {
+  background: var(--ember);
+  border-color: var(--ember);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23FFFFFF' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 8.5l3.2 3.2L13 5'/%3E%3C/svg%3E");
+  background-size: 13px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.consent input:focus-visible { outline: 2px solid var(--ember-2); outline-offset: 2px; }
+.consent__text {
+  font-size: 0.813rem;
+  line-height: 1.6;
+  color: rgba(247, 244, 237, 0.72);
+  max-width: 44em;
+}
+.consent__req { color: rgba(247, 244, 237, 0.45); }
+
+.form__foot { display: grid; justify-items: start; gap: 1.25rem; margin-top: 0.5rem; }
+.form__note { font-size: 0.75rem; color: rgba(247, 244, 237, 0.42); max-width: 46em; line-height: 1.55; }
 
 .form__success {
   border: 1px solid rgba(20, 134, 126, 0.55);
@@ -1100,18 +1088,6 @@ p { margin: 0; text-wrap: pretty; }
   color: rgba(247, 244, 237, 0.82);
 }
 .coverage__points svg { flex: none; color: var(--teal-soft); }
-.coverage__phone {
-  margin-top: 1.5rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-family: var(--font-mono);
-  font-size: 1.02rem;
-  color: var(--ember-2);
-  transition: gap 0.4s var(--ease);
-}
-.coverage__phone:hover { gap: 0.85rem; }
-
 .hours { margin-top: 1.75rem; border-top: 1px solid var(--line-dark); }
 .hours__row {
   display: flex;
@@ -1177,30 +1153,6 @@ p { margin: 0; text-wrap: pretty; }
 .footer__social { display: flex; gap: 1.25rem; }
 .footer__social a { transition: color 0.3s var(--ease); }
 .footer__social a:hover { color: var(--ember-2); }
-
-/* ==========================================================================
-   Sticky mobile call bar
-   ========================================================================== */
-
-.callbar {
-  position: fixed;
-  left: 0; right: 0; bottom: 0;
-  z-index: 40;
-  background: var(--ember);
-  color: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.65rem;
-  padding: 0.95rem 1rem;
-  font-size: 0.906rem;
-  font-weight: 600;
-  transform: translateY(100%);
-  transition: transform 0.5s var(--ease);
-  box-shadow: 0 -8px 30px -18px rgba(11, 26, 32, 0.9);
-}
-.callbar.is-visible { transform: none; }
-@media (min-width: 760px) { .callbar { display: none; } }
 
 /* Red-flag notice inside the approach column */
 .redflag {
